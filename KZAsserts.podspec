@@ -1,37 +1,22 @@
-#
-# Be sure to run `pod lib lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "KZAsserts"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of KZAsserts."
+  s.version          = "1.0"
+  s.summary          = "KZAsserts is set of expanded assert macros that don't crash on release builds and support asynchronus code execution."
   s.description      = <<-DESC
-                       An optional longer description of KZAsserts
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       KZAsserts has been created to allow developers to assert assumptions without worrying about crashing client facing versions of the app, it simplifies error handling by supporting asynchronus code execution and automatic error generation.
+                       [Read more about usage cases and ideology behind this](http://www.merowing.info/2013/07/expanded-use-of-asserts/#.U2KIwuaSzr0)
                        DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "http://merowing.info"
   s.license          = 'MIT'
   s.author           = { "Krzysztof Zablocki" => "krzysztof.zablocki@me.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/EXAMPLE'
+  s.source           = { :git => "https://github.com/krzysztofzablocki/KZAsserts.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/merowing_'
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  s.platform     = :ios, '4.0'
+  s.ios.deployment_target = '4.0'
+  s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  s.resources = 'Assets/*.png'
-
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.public_header_files = 'Classes/**/*.h'
 end
