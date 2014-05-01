@@ -42,7 +42,7 @@ AssertTrueOrReturnError([something isKindOfClass:[NSString class]]);
 ````
 
 This will crash in debug, but in release it will automatically generate NSError for you, it will then return that error object from the current scope. It can also log message to your logger / server / console:
-[IMAGE](image) 
+![IMAGE](../blob/master/log.png?raw=true) 
 
 And that's not all, you probably write a lot of async code in your apps? KZAsserts handles that as easily:
 ````
