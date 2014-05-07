@@ -21,7 +21,7 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
 @end
 
 #ifndef KZAMakeError
-  #define KZAMakeError(condition) KZAsserts.errorFunction([NSString stringWithFormat:@"Condition not satisfied: %s", #condition], KZAssertFailedAssertionCode, @{@"Source" : [NSString stringWithFormat:@"%s:%d", __FILE__, (int)__LINE__], @"Function" : @(__PRETTY_FUNCTION__)}); do{}while(0)
+  #define KZAMakeError(message) KZAsserts.errorFunction([NSString stringWithFormat:@"Condition not satisfied: %@", message], KZAssertFailedAssertionCode, @{@"Source" : [NSString stringWithFormat:@"%s:%d", __FILE__, (int)__LINE__], @"Function" : @(__PRETTY_FUNCTION__)}); do{}while(0)
 #endif
 
 #define RED @"\033[fg214,57,30;"

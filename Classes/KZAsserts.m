@@ -20,7 +20,7 @@ NSError *kza_NSErrorMake(NSString *message, NSUInteger code, NSDictionary *aUser
 #define CLEAR "\033[fg;"
 #define BLUE @"\033[fg63,126,209;"
 #define GREEN @"\033[fg0,244,129;"
-  printf("%s", [[NSString stringWithFormat: RED @"KZAsserts" CLEAR BLUE @" %@" CLEAR @" @ " GREEN @"%@" CLEAR RED @" | %@" CLEAR, function, source, message] UTF8String]);
+  printf("%s\n", [[NSString stringWithFormat: RED @"KZAsserts" CLEAR BLUE @" %@" CLEAR @" @ " GREEN @"%@" CLEAR RED @" | %@" CLEAR, function, source, message] UTF8String]);
 
   return error;
 }
