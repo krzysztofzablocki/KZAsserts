@@ -15,13 +15,8 @@ NSError *kza_NSErrorMake(NSString *message, NSUInteger code, NSDictionary *aUser
   NSError *error = [NSError errorWithDomain:@"info.merowing.internal" code:code userInfo:userInfo];
   NSString *source = error.userInfo[@"Source"] ?: @"";
   NSString *function = error.userInfo[@"Function"] ?: @"";
-  
-#define RED @"\033[fg214,57,30;"
-#define CLEAR "\033[fg;"
-#define BLUE @"\033[fg63,126,209;"
-#define GREEN @"\033[fg0,244,129;"
-  printf("%s\n", [[NSString stringWithFormat: RED @"KZAsserts" CLEAR BLUE @" %@" CLEAR @" @ " GREEN @"%@" CLEAR RED @" | %@" CLEAR, function, source, message] UTF8String]);
 
+  printf("%s\n", [[NSString stringWithFormat: RED @"KZAsserts" CLEAR BLUE @" %@" CLEAR @" @ " GREEN @"%@" CLEAR RED @" | %@" CLEAR, function, source, message] UTF8String]);
   return error;
 }
 
