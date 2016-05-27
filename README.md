@@ -88,7 +88,7 @@ KZAsserts provies following asserts:
 
 ## Installation
 
-KZAsserts is available through [CocoaPods](http://cocoapods.org) for both OSX and iOS, to install
+KZAsserts is available through [CocoaPods](http://cocoapods.org) for OSX, iOS and tvOS, to install
 it simply add the following line to your Podfile:
 
     pod "KZAsserts"
