@@ -34,7 +34,17 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
 /**
     AssertTrueOr[X](condition) - if condition fails to be true, on debug builds it will crash by using Assertion, on Release builds it calls error creation and perform specific action. Asserts with block param will execute ^(NSError *){} passed in block with auto-generated NSError.
  */
-#define AssertTrueOr(condition, action) { BOOL evaluatedCondition = !!(condition); NSCAssert(evaluatedCondition, @"%@", [NSString stringWithFormat:RED @"KZAsserts" CLEAR BLUE @" %s" CLEAR @" @ " GREEN @"%s:%d" CLEAR RED @" | %@" CLEAR, __PRETTY_FUNCTION__, __FILE__, (int)__LINE__, @"Failed: " @#condition]); if (!evaluatedCondition) { NSError *kza_error = KZAMakeError(@#condition); (void)(kza_error); action }} do{} while(0)
+#define AssertTrueOr(condition, action) \
+{ \
+  BOOL evaluatedCondition = !!(condition); \
+  NSCAssert(evaluatedCondition, @"%@", [NSString stringWithFormat:RED @"KZAsserts" CLEAR BLUE @" %s" CLEAR @" @ " GREEN @"%s:%d" CLEAR RED @" | %@" CLEAR, __PRETTY_FUNCTION__, __FILE__, (int)__LINE__, @"Failed: " @#condition]); \
+  if (!evaluatedCondition) \
+  { \
+    NSError *kza_error = KZAMakeError(@#condition); \
+    (void)(kza_error); \
+    action \
+  } \
+} do{} while(0)
 
 #define AssertTrueOrReturnError(condition) AssertTrueOr(condition, return kza_error;)
 #define AssertTrueOrReturnErrorBlock(condition, block) AssertTrueOr(condition, block(kza_error); return kza_error;)
