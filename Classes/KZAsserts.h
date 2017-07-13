@@ -44,6 +44,8 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
     AssertTrueOr[X](condition) - if condition fails to be true, on debug builds it will crash by using Assertion, on Release builds it calls error creation and perform specific action. Asserts with block param will execute ^(NSError *){} passed in block with auto-generated NSError.
  */
 #define AssertTrueOr(condition, action) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wcstring-format-directive\"") \
 { \
   BOOL evaluatedCondition = !!(condition); \
   if (KZDebugPassCondition(evaluatedCondition)) \
@@ -63,6 +65,7 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
     } \
   } \
 } \
+_Pragma("clang diagnostic pop") \
 do{} while(0)
 
 #define AssertTrueOrReturnError(condition) AssertTrueOr(condition, return kza_error;)
