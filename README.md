@@ -105,6 +105,14 @@ In debug version, the assert aborts the program, sometimes we want quick look, w
 
 ![+[KZAsserts debugPass:]    p shouldPass = YES](setup_symbolic_breakpoint.png "+[KZAsserts debugPass:]    p shouldPass = YES")
 
+
+To copy paste, symbol and action:
+
+```
++[KZAsserts debugPass:]
+p shouldPass = YES
+```
+
 ## Author
 
 Krzysztof Zablocki, [@merowing_](http://twitter.com/merowing_)
