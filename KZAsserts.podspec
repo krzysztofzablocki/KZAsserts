@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KZAsserts"
-  s.version          = "1.0.1"
+  s.version          = "1.1.0"
   s.summary          = "KZAsserts is set of expanded assert macros that don't crash on release builds and support asynchronus code execution."
   s.description      = <<-DESC
                        KZAsserts has been created to allow developers to assert assumptions without worrying about crashing client facing versions of the app, it simplifies error handling by supporting asynchronus code execution and automatic error generation.

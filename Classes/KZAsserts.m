@@ -38,4 +38,9 @@ static TKZAssertErrorFunction function = NULL;
   return function;
 }
 
++ (BOOL)debugPass:(BOOL)shouldPass
+{
+  return shouldPass;
+}
+
 @end

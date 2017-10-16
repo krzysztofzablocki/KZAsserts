@@ -100,6 +100,19 @@ If you want to have your own NSError creation function you can just add followin
 ````
 You can also change whole format of logging by defining your own KZAMakeError macro.
 
+## Test Assertion flow during debugging
+In debug version, the assert aborts the program, sometimes we want quick look, what's will happens in release version. If you adding symbolic breakpoint with action you can check it:
+
+![+[KZAsserts debugPass:]    p shouldPass = YES](setup_symbolic_breakpoint.png "+[KZAsserts debugPass:]    p shouldPass = YES")
+
+
+To copy paste, symbol and action:
+
+```
++[KZAsserts debugPass:]
+p shouldPass = YES
+```
+
 ## Author
 
 Krzysztof Zablocki, [@merowing_](http://twitter.com/merowing_)
