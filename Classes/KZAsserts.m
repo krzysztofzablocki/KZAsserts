@@ -16,7 +16,7 @@ NSError *kza_NSErrorMake(NSString *message, NSUInteger code, NSDictionary *aUser
   NSString *source = error.userInfo[@"Source"] ?: @"";
   NSString *function = error.userInfo[@"Function"] ?: @"";
 
-  printf("%s\n", [[NSString stringWithFormat: RED @"KZAsserts" CLEAR BLUE @" %@" CLEAR @" @ " GREEN @"%@" CLEAR RED @" | %@" CLEAR, function, source, message] UTF8String]);
+  printf("%s\n", [NSString stringWithFormat: KZ_RED @"KZAsserts" KZ_CLEAR KZ_BLUE @" %@" KZ_CLEAR @" @ " KZ_GREEN @"%@" KZ_CLEAR KZ_RED @" | %@" KZ_CLEAR, function, source, message].UTF8String);
   return error;
 }
 

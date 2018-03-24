@@ -29,10 +29,10 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
   #define KZAMakeError(message) KZAsserts.errorFunction([NSString stringWithFormat:@"Condition not satisfied: %@", message], KZAssertFailedAssertionCode, @{@"Source" : [NSString stringWithFormat:@"%s:%d", __FILE__, (int)__LINE__], @"Function" : @(__PRETTY_FUNCTION__)}); do{}while(0)
 #endif
 
-#define RED @"\033[fg214,57,30;"
-#define CLEAR "\033[fg;"
-#define BLUE @"\033[fg63,126,209;"
-#define GREEN @"\033[fg0,244,129;"
+#define KZ_RED   @"\033[fg214,57,30;"
+#define KZ_CLEAR  "\033[fg;"
+#define KZ_BLUE  @"\033[fg63,126,209;"
+#define KZ_GREEN @"\033[fg0,244,129;"
 
 #ifdef DEBUG
   #define KZDebugPassCondition(evaluatedCondition) (!evaluatedCondition && [KZAsserts debugPass:evaluatedCondition])
@@ -56,7 +56,7 @@ _Pragma("clang diagnostic ignored \"-Wcstring-format-directive\"") \
   } \
   else \
   { \
-    NSCAssert(evaluatedCondition, @"%@", [NSString stringWithFormat:RED @"KZAsserts" CLEAR BLUE @" %s" CLEAR @" @ " GREEN @"%s:%d" CLEAR RED @" | %@" CLEAR, __PRETTY_FUNCTION__, __FILE__, (int)__LINE__, @"Failed: " @#condition]); \
+    NSCAssert(evaluatedCondition, @"%@", [NSString stringWithFormat:KZ_RED @"KZAsserts" KZ_CLEAR KZ_BLUE @" %s" KZ_CLEAR @" @ " KZ_GREEN @"%s:%d" KZ_CLEAR KZ_RED @" | %@" KZ_CLEAR, __PRETTY_FUNCTION__, __FILE__, (int)__LINE__, @"Failed: " @#condition]); \
     if (!evaluatedCondition) \
     { \
       NSError *kza_error = KZAMakeError(@#condition); \
