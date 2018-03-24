@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/krzysztofzablocki/KZAsserts.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/merowing_'
 
-  s.platform     = :ios, '4.0'
-  s.ios.deployment_target = '4.0'
+  s.platform     = :ios, '6.0'
+  s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
   s.tvos.deployment_target = '9.0'
   s.requires_arc = true
