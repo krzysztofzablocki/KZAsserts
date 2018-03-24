@@ -17,6 +17,11 @@ extern const NSUInteger KZAssertFailedAssertionCode;
 typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, NSDictionary *userInfo);
 
 @interface KZAsserts : NSObject
+
+@property (nonatomic, class, readonly) NSString *kConditionKey;
+@property (nonatomic, class, readonly) NSString *kSourceKey;
+@property (nonatomic, class, readonly) NSString *kFunctionKey;
+
 + (void)registerErrorFunction:(TKZAssertErrorFunction)errorFunction;
 
 + (TKZAssertErrorFunction)errorFunction;
@@ -26,7 +31,16 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
 @end
 
 #ifndef KZAMakeError
-  #define KZAMakeError(message) KZAsserts.errorFunction([NSString stringWithFormat:@"Condition not satisfied: %@", message], KZAssertFailedAssertionCode, @{@"Source" : [NSString stringWithFormat:@"%s:%d", __FILE__, (int)__LINE__], @"Function" : @(__PRETTY_FUNCTION__)}); do{}while(0)
+  #define KZAMakeError(condition) \
+    KZAsserts.errorFunction( \
+      [NSString stringWithFormat:@"Condition not satisfied: %@", condition], \
+      KZAssertFailedAssertionCode, \
+      @{ \
+        KZAsserts.kConditionKey : condition, \
+        KZAsserts.kSourceKey : [NSString stringWithFormat:@"%s:%d", __FILE__, (int)__LINE__], \
+        KZAsserts.kFunctionKey : @(__PRETTY_FUNCTION__) \
+      } \
+    ); do{}while(0)
 #endif
 
 #define KZ_RED   @"\033[fg214,57,30;"
