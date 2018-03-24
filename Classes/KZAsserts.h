@@ -100,4 +100,7 @@ do{} while(0)
 #define AssertTrueOrBreak(condition) AssertTrueOr(condition, break;)
 #define AssertTrueOrBreakBlock(condition, block) AssertTrueOr(condition, block(kza_error); break;)
 
+#define AssertTrueOrIgnore(condition) AssertTrueOr(condition, ;)
+#define AssertTrueOrIgnoreBlock(condition, block) AssertTrueOr(condition, block(kza_error);)
+
 #endif
