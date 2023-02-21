@@ -60,6 +60,7 @@ typedef NSError *(*TKZAssertErrorFunction)(NSString *message, NSUInteger code, N
 #define AssertTrueOr(condition, action) \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Wcstring-format-directive\"") \
+_Pragma("clang diagnostic ignored \"-Wnullable-to-nonnull-conversion\"") \
 { \
   BOOL evaluatedCondition = !!(condition); \
   if (KZDebugPassCondition(evaluatedCondition)) \
